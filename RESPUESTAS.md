@@ -97,6 +97,42 @@ la 55 corrige la tabla impresa y la 84 reubica la línea de referencia en la
 gráfica. Las demás son texto: si se omiten, la simulación da bien pero el
 reporte queda rotulado con el umbral viejo.
 
+#### 2.3 Nuevo comportamiento graficado
+
+La versión ya modificada está en
+[`simulaciones/simulacion_tablero_vth_02.py`](simulaciones/simulacion_tablero_vth_02.py)
+y se ejecuta igual que las demás:
+
+```bash
+python simulaciones/simulacion_tablero_vth_02.py
+```
+
+![Convergencia Monte Carlo con umbral reducido a 0.2 V](figuras/simulacion_tablero_vth_02.png)
+
+La curva converge ahora a la nueva recta teórica de 0.40, cerrando en
+`f = 0.40067` con `N = 100 000`. Comparación de la velocidad de estabilización
+frente al caso original:
+
+| Banda | `V_th = 0.5 V` (`p = 0.25`) | `V_th = 0.2 V` (`p = 0.40`) |
+|---|---|---|
+| ±20% | `N ≈ 82` | `N ≈ 76` |
+| ±10% | `N ≈ 215` | `N ≈ 180` |
+| ±5% | `N ≈ 229` | `N ≈ 591` |
+| ±2% | `N ≈ 7 255` | `N ≈ 4 934` |
+
+Ambos casos estabilizan en el mismo orden de magnitud, y el umbral reducido
+tiende a hacerlo algo antes: al ser el evento más probable (40% contra 25%),
+los errores se acumulan más rápido y el conteo `n_A` crece antes, que es lo
+que gobierna la convergencia. Los primeros 5 ensayos siguen dando
+`f₅ = 0.20`, porque el ruido generado es el mismo (misma semilla) y ninguna de
+las cinco primeras muestras cae entre 0.2 V y 0.5 V; la diferencia aparece
+recién a partir del ensayo 6.
+
+> **Nota sobre la leyenda:** en el script modificado la leyenda se movió a
+> `loc='lower right'`. Con el umbral original la curva se estabilizaba en 0.25
+> y la esquina superior derecha quedaba libre, pero al subir a 0.40 la leyenda
+> tapaba el tramo final. Es un ajuste de legibilidad, no afecta el cálculo.
+
 ---
 
 ## Taller 2 — Laboratorio Virtual 1.1: BER (Sección 1.8)

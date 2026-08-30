@@ -22,6 +22,7 @@ FIGURAS = RAIZ / 'figuras'
 
 SIMULACIONES = [
     'simulacion_tablero.py',
+    'simulacion_tablero_vth_02.py',  # Respuesta al punto 2 del Taller 1
     'laboratorio_1_1_ber.py',
     'laboratorio_1_2_multicanal.py',
 ]

@@ -57,6 +57,15 @@ grafica cómo la frecuencia relativa converge al valor teórico geométrico
 
 ![Convergencia Monte Carlo del ejercicio del tablero](figuras/simulacion_tablero.png)
 
+### `simulacion_tablero_vth_02.py` — punto 2 de las preguntas de cierre
+
+Variante del ejercicio anterior con el umbral de decisión reducido a
+`V_th = 0.2 V`, lo que eleva la probabilidad de error a
+`P(A) = 0.8 / 2.0 = 0.40` (40%). Responde al punto 2 del taller, que pide
+modificar el código y graficar el nuevo comportamiento.
+
+![Convergencia Monte Carlo con umbral reducido a 0.2 V](figuras/simulacion_tablero_vth_02.png)
+
 ### `laboratorio_1_1_ber.py` — Sección 1.7
 
 Laboratorio Virtual 1.1: estimación de la Tasa de Error de Bit (BER) mediante
@@ -77,6 +86,11 @@ Construye el espacio muestral con `itertools`, calcula la cardinalidad
 Laplace `P(E*) = 1/160 = 0.00625`.
 
 ![Convergencia Monte Carlo en selección de tramas multicanal](figuras/laboratorio_1_2_multicanal.png)
+
+## Respuestas de los talleres
+
+Las preguntas de cierre de los tres laboratorios están resueltas en
+[`RESPUESTAS.md`](RESPUESTAS.md).
 
 ## Nota sobre reproducibilidad
 
